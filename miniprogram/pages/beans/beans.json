@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "bean-card": "../../components/bean-card/bean-card",
+    "bean-form": "../../components/bean-form/bean-form"
+  },
+  "enablePullDownRefresh": true
+}

@@ -1,0 +1,9 @@
+{
+  "name": "ai-service",
+  "version": "1.0.0",
+  "description": "AI service for Better-Coffee mini program",
+  "main": "index.js",
+  "dependencies": {},
+  "author": "",
+  "license": "MIT"
+}

@@ -1,0 +1,49 @@
+<view class="container">
+  <view class="section">
+    <view class="section-title">今日推荐</view>
+    <view class="card recommend-card" wx:if="{{recommendation}}">
+      <view class="rec-name">{{recommendation.recommendedBeanName}}</view>
+      <view class="rec-reason">{{recommendation.reason}}</view>
+      <view class="rec-meta" wx:if="{{recommendation.daysSinceRoast !== null}}">
+        已烘焙 {{recommendation.daysSinceRoast}} 天 · 
+        <text wx:if="{{recommendation.isInWindow}}">最佳风味期</text>
+        <text wx:else>养豆中</text>
+      </view>
+    </view>
+    <view class="empty-state" wx:elif="{{loadingRecommend}}">
+      <view>AI 正在挑选今日豆子...</view>
+    </view>
+    <view class="empty-state" wx:else>
+      <view class="empty-text">点击下方按钮让 AI 推荐</view>
+      <button class="btn-primary" bindtap="getRecommendation" style="margin-top: 24rpx;">获取推荐</button>
+    </view>
+  </view>
+
+  <view class="section">
+    <view class="section-title">养豆分析</view>
+    <view wx:if="{{beans.length === 0}}" class="empty-state">
+      <view class="empty-text">还没有添加豆子</view>
+    </view>
+    <block wx:for="{{beans}}" wx:key="_id">
+      <bean-card bean="{{item}}"></bean-card>
+    </block>
+  </view>
+
+  <view class="section">
+    <view class="section-title">最近冲煮</view>
+    <view wx:if="{{recentBrewings.length === 0}}" class="empty-state">
+      <view class="empty-text">还没有冲煮记录</view>
+    </view>
+    <view class="card brewing-item" wx:for="{{recentBrewings}}" wx:key="_id">
+      <view class="brewing-header">
+        <view class="brewing-name">{{item.beanName}}</view>
+        <view class="brewing-time">{{item.timeText}}</view>
+      </view>
+      <view class="brewing-method">{{item.methodLabel}}</view>
+      <view class="brewing-params">{{item.paramsText}}</view>
+      <view class="brewing-tags" wx:if="{{item.tasteTags.length > 0}}">
+        <text class="tag tag-primary" wx:for="{{item.tasteTags}}" wx:for-item="tag" wx:key="*this">{{tag}}</text>
+      </view>
+    </view>
+  </view>
+</view>

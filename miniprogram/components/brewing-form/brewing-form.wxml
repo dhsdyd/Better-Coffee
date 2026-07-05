@@ -1,0 +1,65 @@
+<view class="brewing-form">
+  <block wx:if="{{method === 'pour_over'}}">
+    <view class="form-group">
+      <text class="form-label">粉量(g)</text>
+      <input class="form-input" type="digit" placeholder="如：15" value="{{params.beanWeight}}" data-key="beanWeight" bindinput="handleInput"/>
+    </view>
+    <view class="form-group">
+      <text class="form-label">水量(g)</text>
+      <input class="form-input" type="digit" placeholder="如：240" value="{{params.waterWeight}}" data-key="waterWeight" bindinput="handleInput"/>
+    </view>
+    <view class="form-group">
+      <text class="form-label">比例 1:</text>
+      <input class="form-input" type="digit" placeholder="如：16" value="{{params.ratio}}" data-key="ratio" bindinput="handleInput"/>
+    </view>
+    <view class="form-group">
+      <text class="form-label">研磨度</text>
+      <input class="form-input" placeholder="如：中细" value="{{params.grindSize}}" data-key="grindSize" bindinput="handleInput"/>
+    </view>
+    <view class="form-group">
+      <text class="form-label">水温(℃)</text>
+      <input class="form-input" type="digit" placeholder="如：92" value="{{params.waterTemp}}" data-key="waterTemp" bindinput="handleInput"/>
+    </view>
+    <view class="form-group">
+      <text class="form-label">总时间(秒)</text>
+      <input class="form-input" type="digit" placeholder="如：150" value="{{params.totalTime}}" data-key="totalTime" bindinput="handleInput"/>
+    </view>
+    <view class="form-group">
+      <text class="form-label">冲煮器具</text>
+      <input class="form-input" placeholder="如：V60" value="{{params.brewer}}" data-key="brewer" bindinput="handleInput"/>
+    </view>
+  </block>
+  <block wx:elif="{{method === 'espresso'}}">
+    <view class="form-group">
+      <text class="form-label">粉量(g)</text>
+      <input class="form-input" type="digit" placeholder="如：18" value="{{params.beanWeight}}" data-key="beanWeight" bindinput="handleInput"/>
+    </view>
+    <view class="form-group">
+      <text class="form-label">液重(g)</text>
+      <input class="form-input" type="digit" placeholder="如：36" value="{{params.yieldWeight}}" data-key="yieldWeight" bindinput="handleInput"/>
+    </view>
+    <view class="form-group">
+      <text class="form-label">比例 1:</text>
+      <input class="form-input" type="digit" placeholder="如：2" value="{{params.ratio}}" data-key="ratio" bindinput="handleInput"/>
+    </view>
+    <view class="form-group">
+      <text class="form-label">研磨度</text>
+      <input class="form-input" placeholder="如：细" value="{{params.grindSize}}" data-key="grindSize" bindinput="handleInput"/>
+    </view>
+    <view class="form-group">
+      <text class="form-label">水温(℃)</text>
+      <input class="form-input" type="digit" placeholder="如：93" value="{{params.waterTemp}}" data-key="waterTemp" bindinput="handleInput"/>
+    </view>
+    <view class="form-group">
+      <text class="form-label">萃取时间(秒)</text>
+      <input class="form-input" type="digit" placeholder="如：28" value="{{params.totalTime}}" data-key="totalTime" bindinput="handleInput"/>
+    </view>
+    <view class="form-group">
+      <text class="form-label">咖啡机</text>
+      <input class="form-input" placeholder="如：辣妈Mini" value="{{params.machine}}" data-key="machine" bindinput="handleInput"/>
+    </view>
+  </block>
+  <block wx:else>
+    <view class="empty-tip">请先选择冲煮方式</view>
+  </block>
+</view>

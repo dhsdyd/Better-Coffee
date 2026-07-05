@@ -1,0 +1,56 @@
+<view class="modal-mask" wx:if="{{visible}}" bindtap="handleMaskTap">
+  <view class="modal-content" catchtap="stopPropagation">
+    <view class="modal-header">
+      <text class="modal-title">{{isEdit ? '编辑豆子' : '添加豆子'}}</text>
+      <text class="modal-close" bindtap="handleClose">×</text>
+    </view>
+    <view class="modal-body">
+      <view class="form-group">
+        <text class="form-label">名称 *</text>
+        <input class="form-input" placeholder="如：耶加雪菲" value="{{form.name}}" data-key="name" bindinput="handleInput"/>
+      </view>
+      <view class="form-group">
+        <text class="form-label">产地 *</text>
+        <picker mode="selector" range="{{originLabels}}" value="{{originIndex}}" bindchange="handlePicker" data-key="origin">
+          <view class="form-picker">{{originLabels[originIndex] || '请选择'}}</view>
+        </picker>
+      </view>
+      <view class="form-group">
+        <text class="form-label">品种</text>
+        <picker mode="selector" range="{{varietyLabels}}" value="{{varietyIndex}}" bindchange="handlePicker" data-key="variety">
+          <view class="form-picker">{{varietyLabels[varietyIndex] || '请选择'}}</view>
+        </picker>
+      </view>
+      <view class="form-group">
+        <text class="form-label">处理法</text>
+        <picker mode="selector" range="{{processLabels}}" value="{{processIndex}}" bindchange="handlePicker" data-key="process">
+          <view class="form-picker">{{processLabels[processIndex] || '请选择'}}</view>
+        </picker>
+      </view>
+      <view class="form-group">
+        <text class="form-label">烘焙度 *</text>
+        <picker mode="selector" range="{{roastLabels}}" value="{{roastIndex}}" bindchange="handlePicker" data-key="roastLevel">
+          <view class="form-picker">{{roastLabels[roastIndex] || '请选择'}}</view>
+        </picker>
+      </view>
+      <view class="form-group">
+        <text class="form-label">烘焙日期 *</text>
+        <picker mode="date" value="{{form.roastDate}}" bindchange="handleDateChange">
+          <view class="form-picker">{{form.roastDate || '请选择'}}</view>
+        </picker>
+      </view>
+      <view class="form-group">
+        <text class="form-label">重量(g) *</text>
+        <input class="form-input" type="digit" placeholder="如：200" value="{{form.weight}}" data-key="weight" bindinput="handleInput"/>
+      </view>
+      <view class="form-group">
+        <text class="form-label">备注</text>
+        <textarea class="form-textarea" placeholder="风味描述、购买渠道等" value="{{form.notes}}" data-key="notes" bindinput="handleInput"/>
+      </view>
+    </view>
+    <view class="modal-footer">
+      <button class="btn-secondary" bindtap="handleClose">取消</button>
+      <button class="btn-primary" bindtap="handleSave" loading="{{saving}}">保存</button>
+    </view>
+  </view>
+</view>
