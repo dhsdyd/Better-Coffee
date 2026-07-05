@@ -1,6 +1,6 @@
-const db = require('../../../utils/db.js')
-const { formatRelative, formatBrewingParams, methodLabel } = require('../../../utils/format.js')
-const { TASTE_TAGS } = require('../../../constants/options.js')
+const db = require('../../utils/db.js')
+const { formatRelative, formatBrewingParams, methodLabel } = require('../../utils/format.js')
+const { TASTE_TAGS } = require('../../constants/options.js')
 const app = getApp()
 
 Page({

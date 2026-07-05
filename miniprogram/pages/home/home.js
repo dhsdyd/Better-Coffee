@@ -1,7 +1,7 @@
-const db = require('../../../utils/db.js')
-const { formatRelative, formatBrewingParams, methodLabel } = require('../../../utils/format.js')
-const ai = require('../../../utils/ai.js')
-const { TASTE_TAGS } = require('../../../constants/options.js')
+const db = require('../../utils/db.js')
+const { formatRelative, formatBrewingParams, methodLabel } = require('../../utils/format.js')
+const ai = require('../../utils/ai.js')
+const { TASTE_TAGS } = require('../../constants/options.js')
 
 Page({
   data: {

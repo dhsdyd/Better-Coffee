@@ -1,7 +1,7 @@
-const db = require('../../../utils/db.js')
-const ai = require('../../../utils/ai.js')
-const { BREW_METHODS, TASTE_TAGS, IMPROVEMENT_DIRS } = require('../../../constants/options.js')
-const { methodLabel } = require('../../../utils/format.js')
+const db = require('../../utils/db.js')
+const ai = require('../../utils/ai.js')
+const { BREW_METHODS, TASTE_TAGS, IMPROVEMENT_DIRS } = require('../../constants/options.js')
+const { methodLabel } = require('../../utils/format.js')
 const app = getApp()
 
 Page({

@@ -1,7 +1,7 @@
-const db = require('../../../utils/db.js')
-const ai = require('../../../utils/ai.js')
-const { AI_PROVIDERS } = require('../../../constants/options.js')
-const { maskApiKey } = require('../../../utils/format.js')
+const db = require('../../utils/db.js')
+const ai = require('../../utils/ai.js')
+const { AI_PROVIDERS } = require('../../constants/options.js')
+const { maskApiKey } = require('../../utils/format.js')
 
 Page({
   data: {
