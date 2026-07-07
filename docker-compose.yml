@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+  mongo:
+    image: mongo:7
+    container_name: better-coffee-mongo
+    restart: unless-stopped
+    volumes:
+      - mongo-data:/data/db
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_DATABASE: better-coffee
+    networks:
+      - better-coffee-net
+
+  backend:
+    build: ./backend
+    container_name: better-coffee-backend
+    restart: unless-stopped
+    depends_on:
+      - mongo
+    environment:
+      PORT: 3000
+      MONGODB_URI: mongodb://mongo:27017/better-coffee
+      CORS_ORIGIN: "*"
+      DEMO_MODE: "true"
+    networks:
+      - better-coffee-net
+
+  frontend:
+    build: ./frontend
+    container_name: better-coffee-frontend
+    restart: unless-stopped
+    depends_on:
+      - backend
+    ports:
+      - "8080:80"
+    networks:
+      - better-coffee-net
+
+volumes:
+  mongo-data:
+
+networks:
+  better-coffee-net:
+    driver: bridge

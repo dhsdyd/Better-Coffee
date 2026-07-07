@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-    "brewing-form": "../../components/brewing-form/brewing-form",
-    "star-rating": "../../components/star-rating/star-rating"
-  }
-}

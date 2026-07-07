@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: better-coffee-backend
+    env: node
+    buildCommand: npm install
+    startCommand: node src/server.js
+    envVars:
+      - key: MONGODB_URI
+        sync: false
+      - key: DEMO_MODE
+        value: true
+      - key: CORS_ORIGIN
+        sync: false
